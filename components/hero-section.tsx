@@ -50,7 +50,7 @@ export function HeroSection() {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="gradient-text">Smart Crop Advisory</span>
+            <span className="gradient-text">AgriWise</span>
             <br />
             <span className="text-foreground">for Modern Farmers</span>
           </h1>

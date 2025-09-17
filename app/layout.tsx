@@ -7,7 +7,7 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Smart Crop Advisory System - AI-Powered Farming Solutions",
+  title: "AgriWise - AI-Powered Farming Solutions",
   description:
     "Empowering small and marginal farmers with AI-driven crop advisory, soil health recommendations, weather alerts, and market insights.",
 }

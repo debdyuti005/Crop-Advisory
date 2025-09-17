@@ -14,7 +14,7 @@ export function Footer() {
               <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
                 <Leaf className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold gradient-text">Smart Crop Advisory</span>
+              <span className="text-xl font-bold gradient-text">AgriWise</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Empowering farmers with AI-driven agricultural intelligence for sustainable and profitable farming.
@@ -93,7 +93,7 @@ export function Footer() {
         <Separator className="my-8 bg-border/50" />
 
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-sm text-muted-foreground">© 2024 Smart Crop Advisory. All rights reserved.</div>
+          <div className="text-sm text-muted-foreground">© 2024 AgriWise. All rights reserved.</div>
           <div className="flex space-x-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
               Privacy Policy

@@ -8,10 +8,10 @@ export function AboutSection() {
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             <span className="text-foreground">About</span>
             <br />
-            <span className="gradient-text">Smart Crop Advisory</span>
+            <span className="gradient-text">AgriWise</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             We are dedicated to empowering small and marginal farmers with cutting-edge AI technology, making modern

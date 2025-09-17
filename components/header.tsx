@@ -26,9 +26,9 @@ export function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SC</span>
+              <span className="text-white font-bold text-sm">AW</span>
             </div>
-            <span className="text-xl font-bold gradient-text">Smart Crop Advisory</span>
+            <span className="text-xl font-bold gradient-text">AgriWise</span>
           </div>
 
           {/* Desktop Navigation */}
