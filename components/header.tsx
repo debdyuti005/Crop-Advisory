@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { MessageCircle, Menu, X } from "lucide-react"
+import { MessageCircle, Menu, X, Bot } from "lucide-react"
+import Link from "next/link"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -45,10 +46,12 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="liquid-glass">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              AI Chat
-            </Button>
+            <Link href="/chatbot">
+              <Button variant="ghost" size="sm" className="liquid-glass glow-effect-dark">
+                <Bot className="w-4 h-4 mr-2" />
+                AI Assistant
+              </Button>
+            </Link>
             <Button className="glow-effect bg-primary hover:bg-primary/90">Get Started</Button>
           </div>
 
@@ -77,10 +80,12 @@ export function Header() {
                 Contact
               </a>
               <div className="flex flex-col space-y-2 pt-4 border-t border-border">
-                <Button variant="ghost" size="sm" className="liquid-glass justify-start">
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  AI Chat
-                </Button>
+                <Link href="/chatbot">
+                  <Button variant="ghost" size="sm" className="liquid-glass justify-start glow-effect-dark">
+                    <Bot className="w-4 h-4 mr-2" />
+                    AI Assistant
+                  </Button>
+                </Link>
                 <Button className="glow-effect bg-primary hover:bg-primary/90">Get Started</Button>
               </div>
             </nav>

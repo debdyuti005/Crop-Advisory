@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import { MessageSquare, Leaf, CloudRain, Bug, TrendingUp, Mic, BarChart3, Globe } from "lucide-react"
+import Link from "next/link"
 
 const features = [
   {
@@ -10,6 +11,7 @@ const features = [
     description:
       "Multilingual AI assistant providing real-time, location-specific crop advisory with voice support for low-literate users.",
     gradient: "from-blue-500 to-purple-600",
+    link: "/chatbot",
   },
   {
     icon: Leaf,
@@ -17,12 +19,14 @@ const features = [
     description:
       "Comprehensive soil health recommendations and personalized fertilizer guidance based on your field conditions.",
     gradient: "from-green-500 to-emerald-600",
+    link: "/soil-health",
   },
   {
     icon: CloudRain,
     title: "Weather Intelligence",
     description: "Advanced weather-based alerts and predictive insights to help you make informed farming decisions.",
     gradient: "from-cyan-500 to-blue-600",
+    link: "/weather",
   },
   {
     icon: Bug,
@@ -48,6 +52,7 @@ const features = [
     title: "Analytics Dashboard",
     description: "Comprehensive analytics and insights to track your farming progress and optimize yields.",
     gradient: "from-indigo-500 to-purple-600",
+    link: "/analytics",
   },
   {
     icon: Globe,
@@ -77,35 +82,45 @@ export function FeaturesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <Card
-              key={index}
-              className="group liquid-glass hover:scale-105 transition-all duration-300 p-6 relative overflow-hidden"
-            >
-              {/* Gradient Background Effect */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-              />
+          {features.map((feature, index) => {
+            const FeatureCard = (
+              <Card
+                key={index}
+                className="group liquid-glass hover:scale-105 transition-all duration-300 p-6 relative overflow-hidden cursor-pointer h-full flex flex-col"
+              >
+                {/* Gradient Background Effect */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                />
 
-              {/* Icon */}
-              <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} p-3 mb-4 relative z-10`}>
-                <feature.icon className="w-6 h-6 text-white" />
-              </div>
+                {/* Icon */}
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} p-3 mb-4 relative z-10 flex-shrink-0`}>
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
 
-              {/* Content */}
-              <div className="relative z-10">
-                <h3 className="text-lg font-semibold text-foreground mb-3 group-hover:text-white transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
-                  {feature.description}
-                </p>
-              </div>
+                {/* Content */}
+                <div className="relative z-10 flex-1 flex flex-col">
+                  <h3 className="text-lg font-semibold text-foreground mb-3 group-hover:text-white transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-gray-200 transition-colors flex-1">
+                    {feature.description}
+                  </p>
+                </div>
 
-              {/* Shimmer Effect */}
-              <div className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </Card>
-          ))}
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </Card>
+            );
+
+            return (feature as any).link ? (
+              <Link key={index} href={(feature as any).link}>
+                {FeatureCard}
+              </Link>
+            ) : (
+              FeatureCard
+            );
+          })}
         </div>
 
         {/* Call to Action */}
