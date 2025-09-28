@@ -167,6 +167,10 @@ android/
 !android/build.gradle
 !android/variables.gradle
 !android/gradle.properties
+!android/settings.gradle
+!android/gradlew
+!android/gradlew.bat
+!android/gradle/
 ios/
 capacitor.config.ts.bak
 
