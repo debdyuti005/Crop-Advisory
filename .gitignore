@@ -163,6 +163,10 @@ jspm_packages/
 
 # Capacitor
 android/
+!android/app/build.gradle
+!android/build.gradle
+!android/variables.gradle
+!android/gradle.properties
 ios/
 capacitor.config.ts.bak
 
