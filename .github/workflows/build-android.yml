@@ -47,23 +47,43 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x android/gradlew
       
-    - name: Check Gradle dependencies
+    - name: Check Android environment
       run: |
         cd android
-        ./gradlew dependencies --configuration implementation
+        echo "=== Gradle Version ==="
+        ./gradlew --version
+        echo "=== Project Structure ==="
+        ls -la
+        echo "=== Build files ==="
+        ls -la *.gradle
       
     - name: Sync Capacitor
       run: npx cap sync android
       
-    - name: Clean project
+    - name: Check build configuration
       run: |
         cd android
-        ./gradlew clean --debug
+        echo "=== Checking build.gradle syntax ==="
+        ./gradlew tasks --stacktrace || echo "Tasks command failed"
         
-    - name: Build Android APK with debug logging
+    - name: Clean project with detailed output
       run: |
         cd android
-        ./gradlew assembleDebug --debug --scan
+        ./gradlew clean --stacktrace --info || {
+          echo "Clean failed - showing build files:"
+          find . -name "*.gradle" -exec echo "=== {} ===" \; -exec cat {} \;
+          exit 1
+        }
+        
+    - name: Build Android APK step by step
+      run: |
+        cd android
+        echo "=== Starting build process ==="
+        ./gradlew :app:preBuild --stacktrace --info || exit 1
+        echo "=== PreBuild successful, now compiling ==="
+        ./gradlew :app:compileDebugJavaWithJavac --stacktrace --info || exit 1
+        echo "=== Compile successful, now assembling ==="
+        ./gradlew :app:assembleDebug --stacktrace --info || exit 1
         
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
