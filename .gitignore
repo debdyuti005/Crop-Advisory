@@ -160,3 +160,28 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Capacitor
+android/
+ios/
+capacitor.config.ts.bak
+
+# Generated files
+/out/
+
+# Android
+*.apk
+*.aab
+*.dex
+*.ap_
+*.class
+*.jar
+
+# Build files
+build/
+.gradle/
+local.properties
+
+# IDE files
+*.iml
+.idea/
