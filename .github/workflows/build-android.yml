@@ -50,10 +50,15 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x android/gradlew
       
-    - name: Build Android APK
+    - name: Clean project
       run: |
         cd android
-        ./gradlew assembleDebug
+        ./gradlew clean --info
+        
+    - name: Build Android APK with debug logging
+      run: |
+        cd android
+        ./gradlew assembleDebug --info --stacktrace
         
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
